@@ -1,0 +1,60 @@
+<form #registerForm=ngForm>
+<div>
+    <div class="row" style="background-color: white; height: 586px;">
+        <div class="col-md-4 col-md-offset-4 signup">
+            
+                <div class="row">
+                    <h1 style=" text-align: center; font-size: 1.8em; color: #838383; padding-bottom: 20px; margin-bottom: 30px; border-bottom: #efefef 1px solid;">
+                        {{"SignUp" | translate}}
+                    </h1>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input class="form-control" placeholder='{{"Name" | translate}}'  name="txtName" #nameControl="ngModel" ngModel required/>
+                        <span class="errorMsg" *ngIf="!nameControl.valid && nameControl.touched"> {{"Required" | translate}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input class="form-control" placeholder='{{"Email" | translate}}' id="txtEmail" name="txtEmail" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel" ngModel required/>
+                        <span class="errorMsg" *ngIf="!email.valid && email.touched"> {{"EmailValidation" | translate}} </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder='{{"Password" | translate}}' name="Password" #Password="ngModel" [(ngModel)]="user.password" required/>
+                        <span  class="errorMsg" *ngIf="(Password.touched || registerForm.submitted) && Password.errors?.['required']">
+                            {{"Required" | translate}}
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder='{{"ConfirmPassword" | translate}}'  name="txtConfirm" #txtConfirm="ngModel" [(ngModel)]="user.confirmPassword" required appConfirmEqualValidator="Password"/>
+                        <div>
+                            <span  class="errorMsg" *ngIf="(txtConfirm.touched || registerForm.submitted) && txtConfirm.errors?.['required']">
+                                {{"Required" | translate}}
+                            </span>
+                        </div>
+                        <span  class="errorMsg" *ngIf="(txtConfirm.touched || registerForm.submitted) && user.confirmPassword !== user.password">
+                            {{"PasswordsNotMatch" | translate}}                
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <input type="button" class="btn btn-primary" style="margin-top: 14px; margin-bottom: 14px; width: 100%;" value='{{"SignUp" | translate}}' (click)="onCreate()" [disabled]="registerForm.invalid"/>
+                        <div  class="errorMsg" *ngIf="registerForm.touched && registerForm.invalid">
+                            {{"FieldsRequired" | translate}} 
+                        </div>
+                        <div class="errorMsg">
+                            {{showMessage}}
+                        </div>
+                        <span>{{"HaveAccount" | translate}} <a routerLink="/login">{{"login"| translate}}</a></span>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+</div>
+</form>

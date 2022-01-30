@@ -1,0 +1,32 @@
+<div class="row">
+        <nav class="navbar-inverse">
+            <div class="navbar-brand">
+                Globitel
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-target="#menu1" data-toggle="collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="menu1" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav col-lg-11">
+                  <li><a routerLink="/dashboard/adddepartment">{{"NewDepartment" | translate}}</a></li>
+                  <li><a routerLink="/dashboard/departmentlist" >{{"DepartmentList" | translate}}</a></li>
+                  <li><a routerLink="/dashboard/newemployee">{{"NewEmployee" | translate}}</a></li>
+                  <li><a routerLink="/dashboard/employeelist">{{"EmployeeList" | translate}}</a></li>
+                  <li class="selectLanguage">
+                    <select (change)="changeLang($event)">
+                      <option value="en" [selected]="lang=='en'">English</option>
+                      <option value="ar" [selected]="lang=='ar'">عربي</option>
+                    </select>
+                  </li>
+                  <li><a class="glyphicon glyphicon-log-out"  (click)="Logout()">{{"Logout" | translate}}</a></li>
+                </ul>
+            </div>
+        </nav>
+</div>
+<div class="row">
+    <router-outlet></router-outlet>
+</div>

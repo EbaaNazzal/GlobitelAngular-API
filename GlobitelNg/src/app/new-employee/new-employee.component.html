@@ -1,0 +1,109 @@
+<form #f=ngForm>
+    <div class="container">
+    <div class="row">
+        <h3>{{"AddEmployee"|translate}}</h3>
+        <input type="hidden" id="txtId" name="txtId" ngModel/>
+    </div>
+    <div class="row" style="margin-top: 10px; background-color: white; padding: 36px; border-radius: 10px;">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>{{"FName"| translate}}</label>
+                    <input type="text" id="txtFirstName" name="txtFirstName" class="form-control" #FName="ngModel" ngModel required/>
+                    <span class="errorMsg" *ngIf="!FName.valid && FName.touched">{{"Required" | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>{{"LName"| translate}}</label>
+                    <input type="text" id="txtLastName" name="txtLastName" class="form-control"  #LName="ngModel" ngModel required/>
+                    <span class="errorMsg" *ngIf="!LName.valid && LName.touched">{{"Required" | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>{{"Birthdate"| translate}}</label>
+                    <input type="text" class="form-control" name="txtBirthdate"  #Birthdate="ngModel" ngModel required/>
+                    <span class="errorMsg" *ngIf="!Birthdate.valid && Birthdate.touched">{{"Required" | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>{{"Email"| translate}}</label>
+                    <input type="text" class="form-control" name="txtEmail"  #Email="ngModel" ngModel required/>
+                    <span class="errorMsg" *ngIf="!Email.valid && Email.touched">{{"Required" | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>{{"Phone"| translate}}</label>
+                    <input type="text" class="form-control" name="txtPhone"  #Phone="ngModel" ngModel required pattern="07(7|8|9)[0-9]{7}"/>
+                    <span class="errorMsg" *ngIf="!Phone.valid && Phone.touched">{{"Required" | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class=" row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>{{"Department"| translate}}</label>
+                    <select class="form-control" name="ddlDepartment" #Department="ngModel" ngModel required >
+                        <option *ngFor="let dept of liDepartment" [value]=dept.id >{{dept.name}}</option>
+                    </select>
+                    <span class="errorMsg" *ngIf="!Department.valid && Department.touched">{{"Required" | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>{{"Status"| translate}}</label>
+                    <select class="form-control" name="ddlStatus"  #Status="ngModel" ngModel required  >
+                        <option>{{"Active"| translate}}</option>
+                        <option>{{"Inactive"| translate}}</option>
+                    </select>
+                    <span class="errorMsg" *ngIf="!Status.valid && Status.touched">{{"Required" | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>{{"JoiningDate"| translate}}</label>
+                    <input type="text" class="form-control" name="txtJoinDate" #JoiningDate="ngModel" ngModel required />
+                    <span class="errorMsg" *ngIf="!JoiningDate.valid && JoiningDate.touched">{{"Required" | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <label>{{"Gender"| translate}}</label>
+                    <input type="radio" class="form-check" name="txtGender" value="Female" #Gender="ngModel" ngModel required/> {{"Female"| translate}}
+                    <input type="radio" class="form-check" name="txtGender" value="male"  #Gender="ngModel" ngModel required/>{{"Male"| translate}}
+                    <span class="errorMsg" *ngIf="!Gender.valid && Gender.touched">{{"Required" | translate}}</span>
+                </div>
+                <div class="col-lg-2">
+                    <input type="file" id="upload" style="display:none" name="txtPhoto" ngModel (change)="onFileSelected($event)"/>
+                    <label for="upload" class="btn btn-outline-secondary create-btn">{{"UploadPhoto"|translate}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 17px">
+            <div class="col-lg-6" *ngIf="btnStatus=='create'">
+                <input type="button" class="btn btn-primary" style="width: 100%" value="Create" (click)="onSave()"/>
+            </div>
+            <div class="col-lg-6" *ngIf="btnStatus=='update'">
+                <input type="button" class="btn btn-primary" style="width: 100%" value="Update" (click)="onUpdate()"/>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

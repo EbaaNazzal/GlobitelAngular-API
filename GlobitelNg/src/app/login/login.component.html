@@ -1,0 +1,34 @@
+<form #f=ngForm>
+    <div>
+        <div class="row" style="background-color: white; height: 586px;">
+            <div class="col-md-4 col-md-offset-4 login" >
+                <div class="row">
+                    <h1 style=" text-align: center; font-size: 1.8em; color: #838383; padding-bottom: 20px; margin-bottom: 30px; border-bottom: #efefef 1px solid;">
+                        {{"login"| translate}}
+                    </h1>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input class="form-control" placeholder='{{"Email"| translate}}' name="txtEmail" #email="ngModel" ngModel required/>
+                        <span class="errorMsg" *ngIf="!email.valid && email.touched">{{"Required" | translate}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder='{{"Password"| translate}}' name="txtPassword" #password="ngModel" ngModel required/>
+                        <span class="errorMsg" *ngIf="!password.valid && password.touched">{{"Required" | translate}}</span>
+                    </div>
+                </div>
+                <div class="row" *ngIf="showMessageError">
+                    <span class="erroMsg">{{"InvalidMsg"| translate}}</span>
+                </div>
+                <div class="row">
+                    <div>
+                        <input type="button" class="btn btn-primary" style="margin-top: 14px; margin-bottom: 14px; width: 100%;" value='{{"login"| translate}}' (click)="onLogin()"/>
+                        <span>{{"noAccount"| translate}}<a routerLink="/register">{{"SignUp"| translate}}</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

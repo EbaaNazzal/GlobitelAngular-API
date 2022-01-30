@@ -1,0 +1,20 @@
+<form #f=ngForm>
+    <div class="container">
+    <div class="row" style="margin-top:5px">
+        <h3>{{"AddDepartment"|translate}}</h3>
+    </div>
+    <div class="row" style="margin-top: 10px; background-color: white; padding: 36px; border-radius: 10px;">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <input type="hidden"/>
+                <label>{{"DepartmentName"|translate}} </label>
+                <input type="text" class="form-control" name="txtName" ngModel/>
+                <span class="errorMsg"></span>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <input type="button" class="btn btn-primary" style="margin-top: 22px; width: 90px;" value='{{"Create"|translate}}' (click)="onSave()"/>
+        </div>
+    </div>
+</div>
+</form>

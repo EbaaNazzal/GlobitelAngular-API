@@ -1,0 +1,45 @@
+<div class="container">
+        <div class="row" style="margin-top:5px">
+            <h3>{{"Employees"| translate}}</h3>
+        </div>
+    <div class="row" style="margin-top: 10px; background-color: white; padding: 36px; border-radius: 10px;">
+        <div class="row" style="margin-bottom: 20px">
+            <div class="col-lg-12">
+                <input type="button" class="btn btn-primary" value='{{"Export"| translate}}' (click)="exportexcel()"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12" >
+                <Table class="table table-hover" style="border: #f1f1f1 1px solid">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>{{"Name"| translate}}</th>
+                            <th>{{"Phone"| translate}}</th>
+                            <th>{{"Status"| translate}}</th>
+                            <th>{{"Department"| translate}}</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr *ngFor="let employee of liEmp" [class]="employee.status">
+                                <td><img src="{{employee.photoPath}}" style="width:30px; height:30px" /></td>
+                                <td>{{employee.firstName}} {{employee.lastName}}</td>
+                                <td>{{employee.phone}}</td>
+                                <td *ngIf = "employee.status == 'Active'"><span class = "active" > {{employee.status}}</span></td>
+                                <td *ngIf = "employee.status == 'Inactive'"><span class = "inactive" > {{employee.status}}</span></td>
+                                <td>{{employee.department.name}}</td>
+                                <td>
+                                    <button class="glyphicon glyphicon-pencil action-btn" (click)="OnEdit(employee.id)"></button>
+                                    <button class="glyphicon glyphicon-trash action-btn" style="margin-left: 5px;" (click) ="OnDelete(employee.id)"  ></button>
+                                </td>
+                            </tr>
+                    </tbody>
+                </Table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12"></div>
+        </div>
+    </div>
+</div>

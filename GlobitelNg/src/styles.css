@@ -1,0 +1,68 @@
+.create-btn {
+    background-color: #f1f1f1 !important;
+    border: #c1c1c1 1px solid !important;
+    width: 118px !important;
+    float: right !important;
+}
+
+
+
+body {
+    background-color: rgb(241 241 241) !important;
+}
+
+#logout {
+    margin-left: 33% !important;
+}
+
+.selectLanguage {
+    margin-left: 44% !important;
+    margin-top: 17px !important; 
+}
+.action-btn {
+    border: lightgrey !important;
+    border-style: solid !important;
+    border-width: thin !important;
+    background-color: #F1F1F0 !important;
+    padding: 5px;
+    border-radius: 3px;
+}
+.errorMsg {
+    color:red !important;
+    margin-top:2px !important;
+}
+
+.active{
+    background-color: #0CAF4D; 
+    padding:4px; 
+    border-radius: 3px;
+    color: white;
+}
+.inactive{
+    background-color: red; 
+    padding:4px; 
+    border-radius: 3px;
+    color: white;
+}
+
+.login{
+    border: 1px solid #bfbfbf00 !important; 
+    box-shadow: 0px 0px 9px #aaaaaa !important; 
+    padding-right: 45px !important; 
+    border-radius: 7px !important; 
+    text-align: center !important; 
+    margin-top: 6% !important; 
+    padding-left: 45px !important; 
+    padding-bottom: 24px !important;
+}
+
+.signup{
+ border: 1px solid #bfbfbf00 !important; 
+ box-shadow: 0px 0px 9px #aaaaaa !important; 
+ padding-right: 45px !important; 
+ border-radius: 7px !important; 
+ text-align: center !important; 
+ margin-top: 5% !important; 
+ padding-left: 45px !important; 
+ padding-bottom: 24px;
+}

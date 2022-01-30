@@ -1,0 +1,11 @@
+<div class="container-fluid" >
+  <div class="row" style="background-color: white;">
+    <div  *ngIf="!isLoggedIn()" class="selectLanguage" style="margin-left: 93% !important">
+      <select (change)="changeLang($event)">
+        <option value="en" [selected]="lang=='en'">English</option>
+        <option value="ar" [selected]="lang=='ar'">عربي</option>
+      </select>
+    </div>
+  </div>
+    <router-outlet></router-outlet>
+</div>
